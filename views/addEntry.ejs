@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html ng-app="app" ng-controller='EmployeeController' ng-init="getAllEmployees()">
+<head>
+	<title>EMPLOYEES</title>
+	<!-- Boostrap -->
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+
+<div class="container-fluid">
+	<% include header.ejs %>
+		
+	<form novalidate>
+    <div class="form-group">
+      <label for="code">Employee Code:</label>
+      <input type="text" class="form-control" ng-model="employee.empCode" id="code" placeholder="Enter Employee Code" name="code">
+      <span class="error" ng-show="(employee.empCode.$touched || submitted ) &&!employee.empCode.length">Employee Code is required.<span>
+    </div>
+    <div class="form-group">
+      <label for="name">Employee Name:</label>
+      <input type="text" class="form-control" ng-model="employee.name" id="name" placeholder="Enter Name" name="name">
+      <span class="error" ng-show="(employee.name.$touched || submitted ) &&!employee.name.length">Employee Name is required.<span>
+    </div>
+    <div class="form-group">
+      <label for="email">Employee Email:</label>
+      <input type="email" class="form-control" ng-model="employee.email" id="email" placeholder="Enter Email" name="email">
+      <span class="error" ng-show="(employee.email.$touched || submitted ) &&!employee.email.length">Employee valid Email is required.<span>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Employee PhoneNumber:</label>
+      <input type="text" class="form-control" ng-model="employee.phoneNumber" id="phoneNumber" placeholder="Enter PhoneNumber" name="phoneNumber">
+      <span class="error" ng-show="(employee.phoneNumber.$touched || submitted ) &&!employee.phoneNumber.length">Employee Phone Number is required.<span>
+    </div>
+    <button type="submit" ng-click="submitted=true;createRecord();" class="btn btn-default">Submit</button>
+  </form>
+</div>
+
+<!-- JavaScripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+<!-- Angular JS -->
+  <script type="text/javascript" src="/angularjs/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload-shim.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+  <script type="text/javascript" src="/app.js"></script>
+  <script type="text/javascript" src="/angularControllers/Employee.js"></script>
+</body>
+</html>

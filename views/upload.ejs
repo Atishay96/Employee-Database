@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html ng-app="app" ng-controller='EmployeeController' ng-init="getAllEmployees()">
+<head>
+	<title>Upload Excel File</title>
+	<!-- Boostrap -->
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+
+<div class="container-fluid">
+	<% include header.ejs %>
+	<button ng-show="file" ng-click="uploadFile()" class="btn btn-default" >Upload</button>
+	<div ngf-drop ngf-select ng-model="file" class="drop-box" ngf-drag-over-class="'dragover'" ngf-allow-dir="true" accept=".xlsx, .xls"
+        ngf-pattern="'.xlsx,.xls'">Drop Excel files here or click to upload.<br/> Only xlsx or xls file are allowed</div>
+    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+    <a href="/default.xlsx">Click here to download the default excel file</a>
+</div>
+
+<!-- JavaScripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+<!-- Angular JS -->
+  <script type="text/javascript" src="/angularjs/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload-shim.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+  <script type="text/javascript" src="/app.js"></script>
+  <script type="text/javascript" src="/angularControllers/Employee.js"></script>
+</body>
+</html>
